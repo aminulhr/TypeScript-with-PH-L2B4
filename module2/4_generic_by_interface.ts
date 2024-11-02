@@ -1,6 +1,7 @@
 {
   //generic with interface
-  interface Developer<T> {
+  interface Developer<T, X = null> {
+    //null use as a defalt value, if user has mo bike, result will be null
     name: string;
     computer: {
       brand: string;
@@ -8,12 +9,14 @@
       releaseYear: number;
     };
     smartWatch: T;
+    bike?: X;
   }
-  const poorDeveloper: Developer<{
+  type casioWatch = {
     brand: string;
     model: string;
     disply: string;
-  }> = {
+  };
+  const poorDeveloper: Developer<casioWatch> = {
     name: "Rana",
     computer: {
       brand: "HP",
@@ -26,12 +29,18 @@
       disply: "oled",
     },
   };
-  const richDeveloper: Developer<{
+
+  interface AppleWatch {
     brand: string;
     model: string;
     palsRate: boolean;
     sleepTrack: boolean;
-  }> = {
+  }
+  interface royelbike {
+    model: string;
+    CC: string;
+  }
+  const richDeveloper: Developer<AppleWatch, royelbike> = {
     name: "rakib",
     computer: {
       brand: "makbook",
@@ -43,6 +52,10 @@
       model: "m1",
       palsRate: true,
       sleepTrack: true,
+    },
+    bike: {
+      model: "Royel Enfild",
+      CC: "360cc",
     },
   };
 }
