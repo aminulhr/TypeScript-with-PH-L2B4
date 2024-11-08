@@ -61,9 +61,12 @@
     }
   }
   const gershapeArea = (param: Shape) => {
-    console.log(param.getArea);
+    console.log(param.getArea());
   };
   const Shape1 = new Shape();
+  const Shape2 = new Circle(10);
+  const Shape3 = new rectangle(10,20);
+  gershapeArea(Shape1,Shape2,Shape3)
 
   // for run this code > past on your terminal>
   //ts-node-dev --respawn --transpile-only module3\3.8_Polymorphism.ts
